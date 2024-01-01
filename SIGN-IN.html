@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="style.css.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="sub-hero4">
+
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="video/blackhole.mp4" type="video/mp4">
+        </video>
+        <div class="icons2">
+            <a href="https://instagram.com/aina.zanahnan?igshid=OGQ5ZDc2ODk2ZA=="><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://youtube.com/@Yo-kx5dg?si=ZshInxHCTIgkO2Q_"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>  
+        </div>
+        <nav>
+            <a href="./index.html" target="_blank">
+                <img src="img/logo3.png" class="logo" >
+            </a>
+            <div class="right-col">
+                <img src="img/play_button-removebg-preview.png" id="music">
+            </div>
+            <audio id="mySong">
+                <source src="audio/Mohamed Youssef - Tasmauni Rabbah محمد يوسف - تسمعنى رباه [TubeRipper.com].m4a">
+            </audio>
+            <ul class="nav-links">
+                <li><a href="./HOME.html">Home</a></li>
+                <li><a href="./PHOTO.html">Galleries</a></li>
+                <li class="btn"><a href="./SIGN-IN.html">Sign-In</a></li>
+                <li class="btn"><a href="./SIGNOUT.html" onclick="alert('You are Sign-Out!')">Sign-out</a></li>
+                <li class="fa-solid fa-bars"></li>
+            </ul>
+        </nav>
+
+        <div>
+            <div class="WrappeR">
+                <h1>Sign In</h1>
+                <form name="signInForm" onsubmit="return validateForm()" >
+                    <input type="text" name="userName" placeholder="UserName"  oninput="clearError()">
+                    <input type="password" name="password" placeholder="Password"  oninput="clearError()">
+                    <div class="recover">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <div class="reset">
+                        <input type="reset" value="Reset the form" onclick="handleReset()">
+                    </div>
+                </form>
+                <div id="errorContainer" class="error"></div>
+                <button type = "button" onclick="if(validateForm()) alert ('You are Sign-In!')">Sign In</button>
+                <div class="member">
+                    Not a member? <a href="./SIGN-UP.html">Sign-Up Here.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<!-----------------------------footer---------------------------->
+
+
+    <section class="footer1">
+        <h4>About Us</h4>
+        <p> All the info on this site are the property of the publisher. Do not try to make a profit from these. If you like to use any photo, video or information you get here,<br>
+            Please consider to ask my permission. You can contact through: ainafirzanah.hamimah@gmail.com.
+        </p>
+        <div class="icons1">
+            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></i></a>
+            
+        </div>
+        <p>Copyright <i class="fa fa-heart" aria-hidden="true"></i> Aina. Made with <i class="fa fa-github" aria-hidden="true"></i> by Zanahnan</p>
+    </section>
+
+    <script>
+        var mySong = document.getElementById("mySong");
+        var icon = document.getElementById("music");
+        
+        music.onclick = function(){
+            if(mySong.paused){
+                mySong.play();
+                music.src = "img/pause_button-removebg-preview.png";
+            }else{
+                mySong.pause();
+                music.src = "img/play_button-removebg-preview.png"
+            }
+        }
+
+        function validateForm() 
+        {
+            var userName = document.forms["signInForm"]["userName"].value;
+            var password = document.forms["signInForm"]["password"].value;
+
+            var errorContainer = document.getElementById("errorContainer");
+
+            if (userName === "" && password === "")
+            {
+            errorContainer.innerHTML = "Both UserName and Password must be filled out";
+            return false;
+            }  
+            else if (userName === "") 
+            {
+            errorContainer.innerHTML = "UserName must be filled out";
+             return false;
+            }   
+            else if (password === "") 
+            {
+            errorContainer.innerHTML = "Password must be filled out";
+            return false;
+            } 
+            else 
+            {
+            errorContainer.innerHTML = ""; // Clear any previous error messages
+            }
+
+        return true;
+        }
+
+        function clearError() 
+        {
+        var errorContainer = document.getElementById("errorContainer");
+        errorContainer.innerHTML = "";
+        }
+
+        function handleReset() {
+            clearError();
+            document.forms["signInForm"]["userName"].focus();
+        }
+     </script>
+
+</body>
+</html>
